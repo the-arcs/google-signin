@@ -168,6 +168,7 @@ RCT_EXPORT_METHOD(getTokens:(RCTPromiseResolveBlock)resolve
         resolve(@{
                   @"idToken" : authentication.idToken,
                   @"accessToken" : authentication.accessToken,
+                  @"refreshToken" : authentication.refreshToken,
                   });
       } else {
         reject(@"getTokens", @"authentication was null", nil);

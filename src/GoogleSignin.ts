@@ -86,7 +86,7 @@ class GoogleSignin {
     return IS_IOS ? null : await RNGoogleSignin.clearCachedAccessToken(tokenString);
   }
 
-  async getTokens(): Promise<{ idToken: string; accessToken: string }> {
+  async getTokens(): Promise<{ idToken: string; accessToken: string, refreshToken: string }> {
     if (IS_IOS) {
       const tokens = await RNGoogleSignin.getTokens();
       return tokens;
@@ -95,6 +95,7 @@ class GoogleSignin {
       return {
         idToken: userObject.idToken,
         accessToken: userObject.accessToken,
+        refreshToken: userObject.refreshToken,
       };
     }
   }
